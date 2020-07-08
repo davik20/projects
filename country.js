@@ -23,13 +23,14 @@ const DISPLAY_DETAILS = () => {
 }
 
 
-function getCountry(){
-  fetch('https://restcountries.eu/rest/v2/all')
-.then(response => response.json())
-.then(data => {
-  let COUNTRY_INFO = [];
-  data.forEach(datas => {
-    COUNTRY_INFO.push(`
+async function getCountry(){
+   const response =  await axios('https://restcountries.eu/rest/v2/all')
+
+   let COUNTRY_INFO = []
+   
+   try{
+        response.data.forEach(datas=> {
+      article.insertAdjacentHTML( 'beforeEnd', `
     <div class="country-container" onclick="DISPLAY_DETAILS()" value="${datas.alpha3Code}">
       <img class="country-flag" src="${datas.flag}">
       <ul>
@@ -40,12 +41,17 @@ function getCountry(){
       </ul>
     </div>
     `);
-  });
-article.innerHTML = COUNTRY_INFO.join('');
-  })
-  .catch(err => console.log("error:", err))
-  
+   })
+      
+
+   }
+
+   catch(error){
+    console.log(error);
+   }
+
 }
+
 
 function Filter_Countries(event){
   let searchInput = event.target.value.toLowerCase();
