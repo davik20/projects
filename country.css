@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+}
+.container {
+  background-color: white;
+}
+.countries {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.country-container {
+  width: 23%;
+  height: 280px;
+  margin-right: 1rem;
+  margin-bottom: 3rem;
+  border-radius: 4px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+}
+.country-flag {
+  width: 100%;
+  height: 40%;
+}
+.country-details {
+  margin: 0;
+}
+.country-details p{
+  font-weight: bold;
+  font-size: 28px;
+}
+.country-details span {
+  -webkit-text-stroke: .031rem #000000;
+  -webkit-text-fill-color:#000000;
+}
